@@ -13,7 +13,7 @@ class App extends Component {
   }
   componentDidMount() {
     getData()
-      .then()
+      .then(data => this.setState({reservations: data}))
   }
 
   render() {
@@ -21,7 +21,9 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <Form />
-        <ResContainer />
+        <ResContainer 
+          reservations={this.state.reservations} 
+        />
       </div>
     )
   }
