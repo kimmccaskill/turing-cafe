@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reservation should be an instance of Reservation component 1`] = `
+<article
+  className="res-card"
+>
+  <h1 />
+  <p />
+  <p>
+     pm
+  </p>
+  <p>
+    Number of Guests: 
+  </p>
+  <button
+    className="cancel-btn"
+  >
+    Cancel
+  </button>
+</article>
+`;
