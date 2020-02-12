@@ -25,3 +25,10 @@ return fetch('http://localhost:3001/api/v1/reservations', options)
       return response.json()}
   )
 };
+
+export const deleteRes = id => {
+  const options = {
+    method: 'DELETE'
+  }
+  return fetch(`http://localhost:3001/api/v1/reservations/${id}`, options)
+}
