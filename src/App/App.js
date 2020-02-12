@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getRes, postRes } from '../apiCalls/apiCalls.js'
+import { getRes, postRes, deleteRes } from '../apiCalls/apiCalls.js'
 import Form from '../Form/Form.js';
 import ResContainer from '../ResContainer/ResContainer.js';
 
@@ -16,6 +16,12 @@ class App extends Component {
     postRes(reservation)
   }
 
+  deleteReservation = id => {
+    const updatedReservations = this.state.reservations.filter(reservation => reservation.id !== id);
+    this.setState({ reservations: updatedReservations });
+    deleteRes(id)
+  }
+
   componentDidMount() {
     getRes()
       .then(data => this.setState({reservations: data}))
@@ -28,6 +34,7 @@ class App extends Component {
         <Form addRes={this.addReservation} />
         <ResContainer 
           reservations={this.state.reservations} 
+          deleteReservation={this.deleteReservation}
         />
       </div>
     )
