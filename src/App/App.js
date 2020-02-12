@@ -14,6 +14,7 @@ class App extends Component {
 
   addReservation = (reservation) => {
     postRes(reservation)
+    this.setState({reservations: [...this.state.reservations, reservation]})
   }
 
   deleteReservation = id => {
