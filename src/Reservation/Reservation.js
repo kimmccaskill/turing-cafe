@@ -10,7 +10,6 @@ const Reservation = ({ details }) => {
       <p>Number of Guests: {details.number}</p>
       <button className='cancel-btn'>Cancel</button>
     </article>
-    
   )
 }
 

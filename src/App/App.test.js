@@ -1,9 +1,30 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import App from './App';
+import { shallow } from 'enzyme';
+import { postRes } from '../apiCalls/apiCalls.js'
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+
+describe('App', () => {
+  let wrapper;
+  const mockPostRes = jest.fn();
+  const mockRes = {
+    id: Date.now(),
+    name: 'Kim',
+    date: '03/17',
+    time: '7:00',
+    number: '3',
+  }
+  beforeEach(() => {
+    wrapper = shallow(<App postRes={mockPostRes}/>)
+  })
+
+  it('should be an instance of App component', () => {
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should call postRes with reservation', () => {
+    wrapper.instance().addReservation()
+
+    expect(wrapper.instance().postRes).toHaveBeenCalled()
+  })
+})
