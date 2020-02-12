@@ -1,0 +1,19 @@
+.reservation-form {
+  width: 100%;
+}
+
+input {
+  margin: 2%;
+  height: 25px;
+  width: 200px;
+  font-size: 1em;
+}
+
+button {
+  margin: 2%;
+  height: 30px;
+  width: 200px;
+  font-size: 1em;
+  color: #fff;
+  background-color: teal;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { getData } from '../apiCalls/apiCalls.js'
+import { getRes, postRes } from '../apiCalls/apiCalls.js'
 import Form from '../Form/Form.js';
 import ResContainer from '../ResContainer/ResContainer.js';
 
@@ -11,8 +11,13 @@ class App extends Component {
       reservations: [],
     }
   }
+
+  addReservation = (reservation) => {
+    postRes(reservation)
+  }
+
   componentDidMount() {
-    getData()
+    getRes()
       .then(data => this.setState({reservations: data}))
   }
 
@@ -20,7 +25,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <Form />
+        <Form addRes={this.addReservation} />
         <ResContainer 
           reservations={this.state.reservations} 
         />
