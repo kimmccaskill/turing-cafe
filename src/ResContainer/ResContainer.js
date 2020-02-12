@@ -7,7 +7,7 @@ const ResContainer = ({ reservations }) => {
     return <Reservation details={reservation} />
   });
   return (
-    <section>
+    <section className='res-container'>
       {appendedReservations}
     </section>
   )
